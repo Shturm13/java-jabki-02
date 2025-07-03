@@ -27,8 +27,8 @@ public class Main {
         }
 
         System.out.println("4. Напишите функциональность, которая определяет, является ли год високосным");
-        int year = 2025;
-        System.out.printf("Является ли год %s високосным: %s \n", year, year % 4 == 0);
+        int year = 2004;
+        System.out.printf("Является ли год %s високосным: %s \n", year, (year % 400 == 0) || ((year % 4 == 0) && !(year % 100 == 0)) );
 
         System.out.println("5. Напишите калькулятор ИМТ");
         double weight = 100;
