@@ -1,4 +1,8 @@
 import java.lang.Math;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Домашнее задание. Урок 2");
@@ -124,6 +128,205 @@ public class Main {
         int xxx = 4;
         result = xxx % 2 == 0 ? "Четное": "Нечетное";
         System.out.printf("Число %s - %s \n", xxx, result);
+
+        System.out.println("switch");
+        System.out.println("1. Дано число от 1 до 7. Выведите название дня недели. Если число вне диапазона, выведите «Ошибка»");
+        int dow = 8;
+        String dowName;
+        switch (dow) {
+            case 1:
+                dowName = "Понедельник";
+                break;
+            case 2:
+                dowName = "Вторник";
+                break;
+            case 3:
+                dowName = "Среда";
+                break;
+            case 4:
+                dowName = "Четверг";
+                break;
+            case 5:
+                dowName = "пятница";
+                break;
+            case 6:
+                dowName = "Суббота";
+                break;
+            case 7:
+                dowName = "Воскресенье";
+                break;
+            default:
+                dowName = "Хз какой день";
+        }
+        System.out.println(dowName);
+
+        System.out.println("2. Дано число от 1 до 5. Выведите описание оценки (оцените свою работу)");
+        int grade = 5;
+        String gradeName;
+        switch (grade) {
+            case 1:
+                gradeName = "Кол";
+                break;
+            case 2:
+                gradeName = "Двойка";
+                break;
+            case 3:
+                gradeName = "Тройка";
+                break;
+            case 4:
+                gradeName = "Четверка";
+                break;
+            case 5:
+                gradeName = "Пятерка";
+                break;
+            default:
+                gradeName = "Непонятно";
+        }
+        System.out.printf("Оценка %s это %s \n", grade, gradeName);
+
+        System.out.println("Цикл for");
+        System.out.println("1. Дан список чисел. Посчитайте сумму всех четных элементов");
+        int summa = 0;
+        int startNum = 5;
+        int endNum = 15;
+        for (int i = startNum; i < endNum; i++) {
+            if (i % 2 ==0) {
+                summa = summa + i;
+            }
+        }
+        System.out.printf("Сумма четных элементов в интервале от %s до %s равна %s\n", startNum, endNum, summa);
+
+        System.out.println("2. Дан список чисел. Найдите максимальное значение");
+        int maxNum = 0;
+        for (int i = 0; i < 15; i++) {
+            if (i > maxNum) {
+                maxNum = i;
+            }
+        }
+        System.out.printf("Максимальное число %s\n", maxNum);
+
+        System.out.println("3. Дано число n. Выведите таблицу умножения для n от 1 до 10");
+        for (int i = 1; i < 11; i++) {
+            for (int j = 1; j < 11; j++) {
+                System.out.printf("%s * %s = %s; ", i, j, i*j);
+            }
+            System.out.println();
+        }
+
+        System.out.println("4. С помощью цикла for выведите числа от 10 до 1 в обратном порядке");
+        for (int i = 10; i >0 ; i--) {
+            System.out.printf("%s", i);
+            if (i == 1) {
+                break;
+            }
+            System.out.printf(", ");
+        }
+        System.out.println();
+
+        System.out.println("5. Найдите количество четных чисел в диапазоне от 1 до 50");
+        int evenCount = 0;
+        for (int i = 1; i < 51; i++) {
+            if (i % 2 == 0) {
+                evenCount++;
+            }
+        }
+        System.out.printf("Количество четных чисел в диапазоне от 1 до 50: %s\n", evenCount);
+
+        System.out.println("Цикл while");
+        System.out.println("1. Найдите наименьшее число больше 100, которое делится на 7");
+
+        int w=100;
+        while (w % 7 != 0) {
+            w++;
+        }
+        System.out.printf("Наименьшее число больше 100, которое делится на 7 это: %s\n",w);
+
+        System.out.println("2. Дано число n. Вычислите его факториал через цикл while");
+        int n = 4;
+        int factorial=1;
+        while (n > 1) {
+            factorial = factorial * n;
+            n--;
+        }
+        System.out.printf("Факториал равен %s \n", factorial);
+
+        System.out.println("3. Дано число. Определите, является ли оно простым");
+        int k = 11;
+        int i=2;
+        boolean simpleNum = true;
+        while (i <= Math.sqrt(k)) {
+            if (k % i == 0) {
+                simpleNum = false;
+            }
+            i++;
+        }
+        if (simpleNum) {
+            System.out.printf("Число %s простое\n", k);
+        }else {
+            System.out.printf("Число %s не простое\n", k);
+        }
+
+        System.out.println("4. Придумать задачу самим");
+        String answer;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Удалось придумать задачу?");
+        while (true) {
+            answer = scanner.nextLine();
+            if (answer.equals("да")) {
+                System.out.println("Ну и хорошо");
+                break;
+            }
+            System.out.println("а если еще раз подумать, то удалось?");
+        }
+
+        System.out.println("break & continue");
+        System.out.println("1. Выведите все числа от 1 до 20, кроме тех, что делятся на 3");
+        for (int g = 1; g <= 20 ; g++) {
+            if (g % 3 == 0) {
+                continue;
+            }
+            System.out.printf("Число %s не делится на три, его выводим\n",g);
+        }
+
+        System.out.println("2. Дан список чисел. Суммируйте элементы, пока не встретите отрицательное число");
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(-3);
+
+        int h = 0;
+        int sum = 0;
+        while (h < list.size()){
+           if (list.get(h) > 0) {
+                sum = sum + list.get(h);
+            } else {
+                break;
+            }
+            h ++;
+        }
+        System.out.printf("Сумма чисел до первого отрицательного равно: %s \n", sum);
+
+        System.out.println("3. Дан список чисел. Суммируйте элементы, пока сумма не превысит 100");
+        list = new ArrayList<Integer>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+        list.add(60);
+        list.add(70);
+        sum = 0;
+        h = 0;
+        while (true){
+            if (sum + list.get(h) > 100) {
+                break;
+            }
+            sum = sum + list.get(h);
+            h++;
+        }
+        System.out.printf("Удалось насчитать %s, а закончили числом %s\n", sum, list.get(h));
+
 
     }
 }
